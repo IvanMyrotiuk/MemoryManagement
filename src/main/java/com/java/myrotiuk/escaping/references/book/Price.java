@@ -1,5 +1,6 @@
 package com.java.myrotiuk.escaping.references.book;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,8 +25,7 @@ public class Price {
 		}
 		else {
 			Double conversion = rates.get("USD") / rates.get(toCurrency);
-			value = conversion * value;
-			return value;
+			return conversion * value;
 		}
 	}
 	
@@ -33,9 +33,9 @@ public class Price {
 		return this.value.toString();
 	}
 
-	//Escape
+	//Escape was just rates
 	public Map<String,Double> getRates() {
-		return rates;
+		return Collections.unmodifiableMap(rates);
 	}
 	
 }
