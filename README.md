@@ -30,5 +30,19 @@ Types of collector:
 
 Use java -XX:+PrintCommandLineFlags to find out which is- your by default.
 
+In order to simulate and perform lots of requests to the end point we may use Apache JMeter
+1.right click on TestPlan-> Add-> Threads(Users)->Thread Group
+inorder to make it concurrently we need set Number of Thread 200, Loop Count ->Forever.  
+
+2.right click on ThreadGoup -> Add -> Config Element-> HTTP Cookie Manger(avoiding creation of additional sessions )
+
+3.right click on ThreadGoup -> Add -> Sampler -> HTTP Request
+Configure HTTP request : request Method: POST
+Path: url path http://localhost:8080/mywebapp/myapp.html
+in parameters section add parameters names and values
+
+4.Add listener right click on TestPlan-> Add-> Listener->View Results in Table
+
+Additional information we may look at youtube for Matt Greencroft  -> Hunting for memory leaks - part 7 of Java Memory Management 
    
 Made by Ivan Myrotiuk
